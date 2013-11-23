@@ -5,8 +5,18 @@ interface Pet{
 interface Hatching{
 	public void egg();
 }
+interface Cat{
+	public void meow(int mc);
+}
+interface Dog{
+	public void bowwow(int bc);
+}
+interface Bird{
+	public void tweet(int tc);
+}
 
-class Cat implements Pet{
+
+class ACat implements Pet,Cat{
 	public void meow(int mc){
 		for(int i=0; i<mc; i++){
 			System.out.print("야옹! ");
@@ -22,7 +32,7 @@ class Cat implements Pet{
 	}
 }
 
-class Dog implements Pet{
+class ADog implements Pet,Dog{
 	public void bowwow(int bc){
 		for(int i=0; i<bc; i++){
 			System.out.print("멍! ");
@@ -37,7 +47,7 @@ class Dog implements Pet{
 	}	
 }
 
-class Bird implements Pet,Hatching{
+class ABird implements Pet,Bird,Hatching{
 	public void tweet(int tc){
 		for(int i=0; i<tc; i++){
 			System.out.print("짹! ");
@@ -71,23 +81,23 @@ public class PetMain {
 		
 		switch(pettype){
 		case 1:
-			Dog ADog = new Dog();
-			ADog.wName(name);
-			ADog.wAge(age);
-			ADog.bowwow(age);
+			ADog dog = new ADog();
+			dog.wName(name);
+			dog.wAge(age);
+			dog.bowwow(age);
 			break;
 		case 2:
-			Cat ACat = new Cat();
-			ACat.wName(name);
-			ACat.wAge(age);
-			ACat.meow(age);
+			ACat cat = new ACat();
+			cat.wName(name);
+			cat.wAge(age);
+			cat.meow(age);
 			break;
 		case 3:
-			Bird ABird = new Bird();
-			ABird.wName(name);
-			ABird.wAge(age);
-			ABird.egg();
-			ABird.tweet(age);
+			ABird bird = new ABird();
+			bird.wName(name);
+			bird.wAge(age);
+			bird.egg();
+			bird.tweet(age);
 			break;
 	}
 		
