@@ -1,121 +1,114 @@
-interface Pet{
+interface Pet{ // Pet ¿Œ≈Õ∆‰¿ÃΩ∫ √— 5∞≥¿« interface ±∏«ˆ
 	public void wName(String _name);
 	public void wAge(int _age);
 }
-interface Hatching{
+interface Hatching extends Bird{ //Hatching¿∫ Bird ¿Œ≈Õ∆‰¿ÃΩ∫ ªÛº”
 	public void egg();
 }
-interface Cat{
+interface Cat extends Pet{ // Cat¿∫ Pet ¿Œ≈Õ∆‰¿ÃΩ∫ ªÛº”
 	public void meow(int mc);
 }
-interface Dog{
+interface Dog extends Pet{ //Dog¥¬ Pet ¿Œ≈Õ∆‰¿ÃΩ∫ ªÛº”
 	public void bowwow(int bc);
 }
-interface Bird{
+interface Bird extends Pet{ //Bird¥¬ Pet ¿Œ≈Õ∆‰¿ÃΩ∫ ªÛº”
 	public void tweet(int tc);
 }
-
-
-class ACat implements Pet,Cat{
-	public void meow(int mc){
+class ACat implements Cat{ //ACat ≈¨∑°Ω∫¥¬ Cat ¿Œ≈Õ∆‰¿ÃΩ∫ ªÛº”«œø© ∏ﬁº“µÂ ±∏«ˆ
+	public void meow(int mc){ 
 		for(int i=0; i<mc; i++){
-			System.out.print("ÏïºÏòπ! ");
+			System.out.print("æﬂøÀ! ");
 		}
 	}
 	public void wName(String _name) {
-		System.out.println("Í≥†ÏñëÏù¥Ïùò Ïù¥Î¶ÑÏùÄ "+ _name);
-			
+		System.out.println("∞ÌæÁ¿Ã¿« ¿Ã∏ß¿∫ "+ _name);
 	}
 	public void wAge(int _age) {
-		System.out.println("Í≥†ÏñëÏù¥Ïùò ÎÇòÏù¥Îäî "+ _age+"ÏÇ¥");
-			
+		System.out.println("∞ÌæÁ¿Ã¿« ≥™¿Ã¥¬ "+ _age+"ªÏ");
 	}
 }
-
-class ADog implements Pet,Dog{
+class ADog implements Dog{//ADog ≈¨∑°Ω∫¥¬ Dog ¿Œ≈Õ∆‰¿ÃΩ∫ ªÛº”«œø© ∏ﬁº“µÂ ±∏«ˆ
 	public void bowwow(int bc){
 		for(int i=0; i<bc; i++){
-			System.out.print("Î©ç! ");
+			System.out.print("∏€! ");
 		}
 	}
-	
 	public void wName(String _name) {
-		System.out.println("Í∞ïÏïÑÏßÄÏùò Ïù¥Î¶ÑÏùÄ "+ _name);
+		System.out.println("∞≠æ∆¡ˆ¿« ¿Ã∏ß¿∫ "+ _name);
 	}
 	public void wAge(int _age) {
-		System.out.println("Í∞ïÏïÑÏßÄÏùò ÎÇòÏù¥Îäî "+ _age+"ÏÇ¥");
+		System.out.println("∞≠æ∆¡ˆ¿« ≥™¿Ã¥¬ "+ _age+"ªÏ");
 	}	
 }
 
-class ABird implements Pet,Bird,Hatching{
+class ABird implements Hatching{ //ABird ≈¨∑°Ω∫¥¬ Hatching ¿Œ≈Õ∆‰¿ÃΩ∫ ªÛº”«œø© ∏ﬁº“µÂ ±∏«ˆ
 	public void tweet(int tc){
 		for(int i=0; i<tc; i++){
-			System.out.print("Ïßπ! ");
+			System.out.print("¬±! ");
 		}
 	}
-	
 	public void wName(String _name) {
-		System.out.println("ÏÉàÏùò Ïù¥Î¶ÑÏùÄ "+ _name);
+		System.out.println("ªı¿« ¿Ã∏ß¿∫ "+ _name);
 	}
 
 	public void wAge(int _age) {
-		System.out.println("ÏÉàÏùò ÎÇòÏù¥Îäî "+ _age+"ÏÇ¥");
+		System.out.println("ªı¿« ≥™¿Ã¥¬ "+ _age+"ªÏ");
 	}
 	public void egg() {
-		System.out.println("ÏÉàÎäî ÏïåÏóêÏÑú ÌÉúÏñ¥ÎÇ¨Ïñ¥Ïöî.");
-		
+		System.out.println("ªı¥¬ æÀø°º≠ ≈¬æÓ≥µæÓø‰.");
+
 	}
-	
+
 }
 
 
 public class PetMain {
-	 public static void main(String[] args) {
-		int pettype;
-		String name;
-		int age;
+	public static void main(String[] args) {
+		int pettype=0;
+		String name = null;
+		int age = 0;
+		try{
+			pettype=Integer.parseInt(args[0]); //pettypeø° ¡§ºˆ«¸¿∏∑Œ ∞™¿ª ¿‘∑¬πﬁ¿Ω
+		}
+		catch(NumberFormatException nfe){ //pettypeø° ¡§ºˆ∞° æ∆¥œ∏È øπø‹√≥∏Æ πﬂª˝
+			System.out.println("øπø‹√≥∏Æπﬂª˝ (¿ﬂ∏¯µ»¿‘∑¬)");
+			System.out.println("≈∏¿‘¿∫ π›µÂΩ√ ¡§ºˆ«¸∏∏ ¿‘∑¬«œΩ Ω√ø¿");
+			return;
+		}
+	
+		name=String.valueOf(args[1]); //nameø° πÆ¿⁄ø≠¿ª ¿‘∑¬πﬁ¿Ω
 		
-		pettype=Integer.parseInt(args[0]);
-		name=String.valueOf(args[1]);
-		age=Integer.parseInt(args[2]);
-		
-		switch(pettype){
-		case 1:
-			ADog dog = new ADog();
-			dog.wName(name);
+		try{
+			age=Integer.parseInt(args[2]); //ageø° ¡§ºˆ«¸¿∏∑Œ ∞™¿ª ¿‘∑¬πﬁ¿Ω
+		}
+		catch(ArrayIndexOutOfBoundsException aioobe){ //¿‘∑¬¿Ã 3∞≥∞° æ»µÈæÓø¿∏È øπø‹√≥∏Æ πﬂª˝
+			System.out.println("øπø‹√≥∏Æπﬂª˝ (¿‘∑¬∫Œ¡∑)");
+			System.out.println("¡§∫∏∏¶ ∏µŒ ¿‘∑¬«œΩ Ω√ø¿");
+			return;
+		}
+
+		switch(pettype){ //pettypeø° µÈæÓø¬ 1~3¿∏∑Œ ¡¶æÓπÆ ªÁøÎ«œø© «ÿ¥Á≈¨∑°Ω∫ ∞¥√º ª˝º∫
+		case 1: // pettype 1¿œ∞ÊøÏ
+			ADog dog = new ADog(); //dog ∞¥√º ª˝º∫
+			dog.wName(name); 
 			dog.wAge(age);
 			dog.bowwow(age);
 			break;
-		case 2:
-			ACat cat = new ACat();
+		case 2: //pettype 2¿œ∞ÊøÏ
+			ACat cat = new ACat(); //cat ∞¥√º ª˝º∫
 			cat.wName(name);
 			cat.wAge(age);
 			cat.meow(age);
 			break;
-		case 3:
-			ABird bird = new ABird();
+		case 3: //pettype 3¿œ∞ÊøÏ
+			ABird bird = new ABird(); //bird ∞¥√º ª˝º∫
 			bird.wName(name);
 			bird.wAge(age);
 			bird.egg();
 			bird.tweet(age);
 			break;
+		}
 	}
-		
-		
-		
-		
-	//	System.out.println(pettype);
-//		System.out.println(name);
-//		System.out.println(age);
-	}
-		//arg 2Í∞ú Î∞õÏùå Ìé´ÌÉÄÏûÖ Ïù¥Î¶Ñ ÎÇòÏù¥
-		//Ìé´ÌÉÄÏûÖ 1 ÏùÄ Í∞ïÏïÑÏßÄ 2Îäî Í≥†ÏòÅÏù¥ 3ÏùÄ ÏÉà
-		
-		//arg 3Í∞ú ÏûÖÎ†• Î™ªÎ∞õÏúºÎ©¥ ÏòàÏô∏Ï≤òÎ¶¨ „Ñ±
-		//Ìé´Ï¢ÖÎ•òÏóê Ï†ïÏàòÍ∞Ä ÏïÑÎãå Ïà´Ïûê ÏûÖÎ†• Ïãú ÏòàÏô∏Ï≤òÎ¶¨ Î∞úÏÉù
-		
-		
-	
 }
 
 
